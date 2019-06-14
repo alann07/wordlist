@@ -12,7 +12,6 @@ class WordlistService:
         self.KNIGH_MOVES = [(1,2), (1,-2), (-1,2), (-1,-2), (2,1), (2,-1), (-2,1), (-2,-1)]
 
     def find_longest_word(self, wordlist_file, matrix_file, x, y):
-        print(x, y)
 
         word_trie = self.create_trie_from_file(wordlist_file)
         matrix = self.create_matrix_from_file(matrix_file)

@@ -50,9 +50,9 @@ def main():
     wordlist_service = WordlistService()
     longest_word = wordlist_service.find_longest_word(wordlist_file, grid_file, x, y)
     if longest_word is None or len(longest_word) == 0:
-        logger.info(("Longest word not found"))
+        logger.info("No word found starting (" + str(x) + ", " + str(y) + ")")
     else:
-        logger.info("Longest word found: " + longest_word)
+        logger.info("Longest word found: " + longest_word + ", starting at (" + str(x) + ", " + str(y) + ")")
 
 
 if __name__ == '__main__':
