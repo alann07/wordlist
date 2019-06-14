@@ -7,6 +7,11 @@ logger = logging.getLogger(__name__)
 class WordlistService:
 
     def __init__(self, wordlist_file_name, grid_file_name):
+        '''
+        Init the service. Create trie and matrix from here.
+        :param wordlist_file_name:
+        :param grid_file_name:
+        '''
         self.MATRIX_MAX_ROWS = 8
         self.MATRIX_MAX_COLS = 8
         self.KNIGH_MOVES = [(1,2), (1,-2), (-1,2), (-1,-2), (2,1), (2,-1), (-2,1), (-2,-1)]
@@ -15,6 +20,12 @@ class WordlistService:
         self.matrix = self.create_matrix_from_file(grid_file_name)
 
     def find_longest_word(self, x, y):
+        '''
+        Find the longest word starting from this coordindate.
+        :param x: grid position. needs to convert to array index.
+        :param y: grid position. Needs to convert to array index.
+        :return:
+        '''
 
         i_idx = y - 1
         j_idx = x - 1
@@ -45,6 +56,11 @@ class WordlistService:
         return longest_word
 
     def create_trie_from_file(self, wordlist_file_name):
+        '''
+        Create a trie from input file.
+        :param wordlist_file_name:
+        :return:
+        '''
         wordlist_file = None
         try:
             wordlist_file = open(wordlist_file_name, "r")
@@ -80,6 +96,11 @@ class WordlistService:
             wtrie.insert(curr_word.strip().lower())
 
     def create_matrix_from_file(self, grid_file_name):
+        '''
+        Create matrix from grid input file
+        :param grid_file_name:
+        :return:
+        '''
         grid_file = None
         try:
             grid_file = open(grid_file_name, "r")
